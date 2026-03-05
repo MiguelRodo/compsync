@@ -1,0 +1,24 @@
+Source: compsync
+Section: utils
+Priority: optional
+Maintainer: Miguel Rodo <miguel.rodo@uct.ac.za>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.5.1
+Homepage: https://github.com/MiguelRodo/compsync
+
+Package: compsync
+Architecture: all
+Depends: bash, git, python3
+Description: Synchronize DevContainer configurations from MiguelRodo/comp
+ compsync is an interactive CLI tool that clones the MiguelRodo/comp
+ repository and applies its "gold standard" DevContainer configurations
+ to your current project, including:
+  - .devcontainer/Dockerfile
+  - .devcontainer/devcontainer.json (with deep JSON merge support)
+  - .devcontainer/prebuild/devcontainer.json
+  - .devcontainer/renv/ (R environment lockfile)
+  - .devcontainer/scripts/ (R utility scripts)
+  - .devcontainer/.Rprofile (overwrite or append)
+  - scripts/ (Bash utilities with automatic +x permissions)
+ .
+ Designed for R/Python data-science projects using VS Code DevContainers.
