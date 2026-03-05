@@ -1,0 +1,2 @@
+# compsync
+Update compendium configuration
