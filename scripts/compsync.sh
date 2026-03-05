@@ -61,7 +61,8 @@ ask() {
     echo -e "${YELLOW}?  $prompt [y/N]${NC} "
     local answer
     read -r answer
-    case "${answer,,}" in
+    answer="$(printf '%s' "$answer" | tr '[:upper:]' '[:lower:]')"
+    case "$answer" in
         y|yes) return 0 ;;
         *)     return 1 ;;
     esac
