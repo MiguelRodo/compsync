@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	# Install scripts to /usr/share/compsync/scripts/
+	install -d debian/compsync/usr/share/compsync
+	cp -r scripts debian/compsync/usr/share/compsync/
+
+	# Make all shell scripts executable
+	find debian/compsync/usr/share/compsync/scripts -type f -name "*.sh" -exec chmod +x {} \;
+
+	# Install the wrapper script to /usr/bin/compsync
+	install -d debian/compsync/usr/bin
+	install -m 755 debian/compsync.sh debian/compsync/usr/bin/compsync
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf debian/compsync
+
+override_dh_auto_build:
+	# No build step needed
+
+override_dh_auto_test:
+	# No tests during package build

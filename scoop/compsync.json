@@ -1,0 +1,27 @@
+{
+    "version": "1.0.0",
+    "description": "Synchronize DevContainer configurations from MiguelRodo/comp",
+    "homepage": "https://github.com/MiguelRodo/compsync",
+    "license": "MIT",
+    "url": "https://github.com/MiguelRodo/compsync/archive/refs/tags/v1.0.0.zip",
+    "hash": "REPLACE_WITH_ACTUAL_HASH",
+    "extract_dir": "compsync-1.0.0",
+    "bin": "bin\\compsync.ps1",
+    "depends": [
+        "git",
+        "python"
+    ],
+    "checkver": {
+        "github": "https://github.com/MiguelRodo/compsync"
+    },
+    "autoupdate": {
+        "url": "https://github.com/MiguelRodo/compsync/archive/refs/tags/v$version.zip",
+        "extract_dir": "compsync-$version"
+    },
+    "notes": [
+        "Run 'compsync --help' to get started.",
+        "Requires Git for Windows (provides bash) and Python 3.",
+        "Git for Windows: https://git-scm.com/download/win",
+        "Python 3: https://www.python.org/downloads/"
+    ]
+}

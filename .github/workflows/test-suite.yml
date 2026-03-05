@@ -1,0 +1,47 @@
+name: Test Suite
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  test-suite-ubuntu:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git bash
+
+      - name: Make scripts and tests executable
+        run: |
+          chmod +x scripts/*.sh
+          chmod +x tests/*.sh
+
+      - name: Run Python merger unit tests
+        run: |
+          python3 -m unittest tests/test-merge-json.py -v
+
+      - name: Run compsync bash test suite
+        run: |
+          cd tests
+          ./test-compsync.sh
+
+      - name: Test suite summary
+        if: always()
+        run: |
+          echo "✅ Test suite completed on Ubuntu"

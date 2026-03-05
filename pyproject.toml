@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compsync"
+version = "1.0.0"
+description = "Synchronize repository configurations from MiguelRodo/comp"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Miguel Rodo", email = "miguel.rodo@uct.ac.za"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Software Development",
+]
+keywords = ["devcontainer", "git", "sync", "configuration", "rprofile"]
+
+[project.urls]
+Homepage = "https://github.com/MiguelRodo/compsync"
+Repository = "https://github.com/MiguelRodo/compsync"
+Issues = "https://github.com/MiguelRodo/compsync/issues"
+
+[project.scripts]
+compsync = "compsync:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+compsync = ["scripts/**/*"]
